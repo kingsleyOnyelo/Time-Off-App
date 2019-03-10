@@ -31,9 +31,9 @@ class LandingPage extends React.Component{
 
                                 <section>
                                     <div className="subCon1">
-                                        <div className="innerSubCon hideUs">
+                                        <div className="innerSubCon">
                                             <img src={backgroundImg}  alt="subCon" width="200px" height="200px" className="imgSub"/>
-                                            <p>Feeling Tired?</p> 
+                                            <p className="pMe">Feeling Tired?</p> 
                                         </div>
                                         <div className="innerSubCon hideUs"><img src={honey}  alt="subCon" width="200px" height="200px" className="imgSub"/>
                                             <p>Need Maternity Leave?</p></div>
