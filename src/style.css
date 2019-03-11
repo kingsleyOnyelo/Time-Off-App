@@ -162,6 +162,9 @@ transform: scale(1.1);
         position: relative;
         
     }
+    .head1{
+        font-size: 15px;
+    }
    
     .signUp{
         width: 500px;
