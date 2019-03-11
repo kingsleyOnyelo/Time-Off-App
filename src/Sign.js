@@ -12,11 +12,19 @@ export default class Sign extends React.Component{
             
 
             <div className="signCon2">
-                <input type="text" placeholder="First Name" className="fname form-control"></input>
-                <input type="text" placeholder="Last Name" className="fname form-control"></input>
-                <input type="email" placeholder="Email Name" className="fname form-control"></input>
-                <input type="password" placeholder="Password" className="fname form-control"></input><br/>
-                <input type="button" value="Submit" className="fname form-control"></input>
+            <input type="text" placeholder="Company Name" className="fname form-control" required></input>
+                <input type="text" placeholder="First Name" className="fname form-control" required></input>
+                <input type="text" placeholder="Last Name" className="fname form-control" required></input>
+                <input type="email" placeholder="Email Address" className="fname form-control" required></input>
+                <input type="password" placeholder="Password" className="fname form-control" required></input>
+                <input type="password" placeholder="Confirm Password" className="fname form-control" required></input>
+                <select name="Country" className="fname form-control">
+                    <option value="Canada" >Canada</option>
+                    <option value="USA">USA</option>
+                    <option value="Dubai">Dubai</option>
+                    <option value="Ghana">Ghana</option>
+                </select>     <br/>
+                <input type="button" value="Submit" className="fname1"></input>
                 
             </div>
         </div>
