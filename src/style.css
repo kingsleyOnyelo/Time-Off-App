@@ -128,8 +128,12 @@ transform: scale(1.1);
     padding: 10px;
     padding-left: 40px;
 }
-
+.lbl{
+    color: white;
+    font-size: 21px;
+}
 .fname{
+    
     height: 30px;
     border-radius: 20px;
     margin-top: 20px;

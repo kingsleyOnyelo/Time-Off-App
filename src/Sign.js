@@ -12,7 +12,8 @@ export default class Sign extends React.Component{
             
 
             <div className="signCon2">
-            <input type="text" placeholder="Company Name" className="fname form-control" required></input>
+            <label className="lbl">Employees Time Off form</label>
+            <input type="text" placeholder="Company Name" className="fname form-control" required ></input>
                 <input type="text" placeholder="First Name" className="fname form-control" required></input>
                 <input type="text" placeholder="Last Name" className="fname form-control" required></input>
                 <input type="email" placeholder="Email Address" className="fname form-control" required></input>
