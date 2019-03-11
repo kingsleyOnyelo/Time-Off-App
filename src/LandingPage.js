@@ -21,7 +21,7 @@ class LandingPage extends React.Component{
                         <BrowserRouter>
                         <div className="con">
                                 <nav className="navBar">
-                                    <div className="spn"><h3 className="logo">ComName</h3></div>
+                                    <div className="spn"><h3 className="logo">TimeOff App</h3></div>
                                     <div className="signUp">
                                     <Link to="/"><input type="button" className="btn btn1" value="Login"></input></Link>
                                     <Link to="/sign"><input type="button" className="btn btn2" value="Sign Up"></input></Link>
