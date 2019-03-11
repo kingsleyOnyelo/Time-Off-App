@@ -4,6 +4,11 @@ import 'bootstrap/dist/css/bootstrap.css'
 import backgroundImg from './img/backgroundImg.svg';
 import honey from './img/honey.svg';
 import matern from './img/matern.svg';
+import Sign from './Sign';
+import {BrowserRouter} from 'react-router-dom';
+import {Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
 
 
 class LandingPage extends React.Component{
@@ -13,16 +18,20 @@ class LandingPage extends React.Component{
 
         return (
                     <div>
+                        <BrowserRouter>
                         <div className="con">
                                 <nav className="navBar">
                                     <div className="spn"><h3 className="logo">ComName</h3></div>
                                     <div className="signUp">
-                                    <input type="button" className="btn btn1" value="Login"></input>
-                                    <input type="button" className="btn btn2" value="Sign Up"></input>
+                                    <Link to="/"><input type="button" className="btn btn1" value="Login"></input></Link>
+                                    <Link to="/sign"><input type="button" className="btn btn2" value="Sign Up"></input></Link>
                                     </div>
                                 </nav>
+                        
 
-                                <section>
+                                <Route path="/" exact render={()=>{
+                                    return <div>
+                                        <section>
                                     <div className="headCon">
                                         <h1 className="display-4 head1">TimeOff Management App</h1>
                                         <h3 className="head">Take that leave here...</h3>
@@ -44,14 +53,28 @@ class LandingPage extends React.Component{
 
                                 <section>
                                         <div className="signBtnDiv">
-                                                <input type="button" value="SignUp Now" className="signBtn"></input>
-                                        </div>
+                                        <Link to="/sign"><input type="button" value="SignUp Now" className="signBtn"></input></Link>
+                                        </div>   
+                                                
+                                                
+                                       
                                 </section>
-                        </div>
+                                    </div>
+                                    
+                                }}></Route>
+                                
+
+                                
+                                <Route path="/sign" exact component={Sign}/>
+                              
+                                </div>
                         
+                        
+                                </BrowserRouter>
                     </div>
+                    
             
-        )
+        );
     }
 }
 
