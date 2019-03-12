@@ -10,6 +10,8 @@ export default class Sign extends React.Component{
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleChangeName = this.handleChangeName.bind(this);
+        this.handleChangePass = this.handleChangePass.bind(this);
+        this.handleChangePass2 = this.handleChangePass2.bind(this);
     }
 
     state = {
@@ -17,6 +19,8 @@ export default class Sign extends React.Component{
         dept:"",
         name: "",
         email: "",
+        password: "",
+        password2: "",
 
     };
 
@@ -28,6 +32,16 @@ export default class Sign extends React.Component{
     handleChangeName(event){
         const nameVal = event.target.value;
         this.setState({dept: nameVal});
+    }
+
+    handleChangePass(event){
+        const passVal = event.target.value;
+        this.setState({dept: passVal});
+    }
+
+    handleChangePass2(event){
+        const pass2Val = event.target.value;
+        this.setState({dept: pass2Val});
     }
 
     handleClick(){
@@ -46,6 +60,14 @@ export default class Sign extends React.Component{
             }else{
                 this.setState({name: this.state.name});
             }
+
+
+
+            if(this.state.password2 !== this.state.password){
+                alert("please check password match");
+                }else{
+                    alert("password match");
+                }
     }
 
     render(){
@@ -62,8 +84,8 @@ export default class Sign extends React.Component{
                 <input type="text" placeholder="Name" className="form-control" onChange={this.handleChangeName}></input><br/>
                 <input type="email" placeholder="Email Address" className="form-control" required></input><br/>
                 <input placeholder="dd/mm/yy" className="form-control" required></input><br/>
-                <input type="password" placeholder="Password" className="form-control" required></input><br/>
-                <input type="password" placeholder="Confirm Password" className="form-control" required></input><br/>
+                <input type="password" placeholder="Password" className="form-control" onChange={this.handleChangePass}></input><br/>
+                <input type="password" placeholder="Confirm Password" className="form-control" onChange={this.handleChangePass2}></input><br/>
                 <select name="Country" className="fname form-control">
                     <option value="Canada" >Canada</option>
                     <option value="USA">USA</option>
@@ -89,7 +111,7 @@ export default class Sign extends React.Component{
                 <input type="password" placeholder="Password" className="form-control" required></input><br/>
               
                 
-                <input type="button" value="Submit" className="fname1"></input>
+                <input type="button" value="Login" className="fname1"></input>
             </form>
             
                 
