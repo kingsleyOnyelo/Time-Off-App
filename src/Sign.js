@@ -8,6 +8,7 @@ export default class Sign extends React.Component{
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     state = {
@@ -18,7 +19,8 @@ export default class Sign extends React.Component{
     };
 
     handleChange(event){
-        console.log(event.target);
+       const deptVal = event.target.value;
+       this.setState({dept: deptVal});
     }
 
     handleClick(){
@@ -28,7 +30,7 @@ export default class Sign extends React.Component{
         if(this.state.dept === ""){
         this.setState({dept: this.state.dept = alert("please enter a Department")});
         }else{
-            this.setState({dept: this.state.dept});
+            this.setState({dept: alert( ` Okay ${this.state.dept}`)});
         }
 
 
