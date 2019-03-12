@@ -1,9 +1,9 @@
 import React from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.css'
-import backgroundImg from './img/backgroundImg.svg';
+import backgroundImg from './img/backgroundImg.jpg';
 import honey from './img/honey.svg';
-import matern from './img/matern.svg';
+import matern from './img/matern.jpg';
 import Sign from './Sign';
 import {BrowserRouter} from 'react-router-dom';
 import {Route} from 'react-router-dom';

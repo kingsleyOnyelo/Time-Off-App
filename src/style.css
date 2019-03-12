@@ -117,7 +117,7 @@ transform: scale(1.1);
     top: 70px;
     display: flex;
     justify-content: center;
-    background:url("./img/signupback.svg");
+    background:url("./img/signupback.jpg");
     background-size: cover;
     
 }

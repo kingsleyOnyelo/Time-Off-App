@@ -9,18 +9,25 @@ export default class Sign extends React.Component{
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleChangeName = this.handleChangeName.bind(this);
     }
 
     state = {
         signup : "SIGN UP",
         dept:"",
         name: "",
+        email: "",
 
     };
 
     handleChange(event){
        const deptVal = event.target.value;
        this.setState({dept: deptVal});
+    }
+
+    handleChangeName(event){
+        const nameVal = event.target.value;
+        this.setState({dept: nameVal});
     }
 
     handleClick(){
@@ -37,7 +44,7 @@ export default class Sign extends React.Component{
         if(this.state.name === ""){
             this.setState({name: this.state.name = alert("please enter a name")});
             }else{
-                this.setState({name: this.state.name = this.state.name});
+                this.setState({name: this.state.name});
             }
     }
 
@@ -52,7 +59,7 @@ export default class Sign extends React.Component{
             <form>
                 <label className="lbl">SIGN UP</label>
                 <input type="text" placeholder="Department" className="form-control" onChange={this.handleChange}></input><br/>
-                <input type="text" placeholder="Name" className="form-control"></input><br/>
+                <input type="text" placeholder="Name" className="form-control" onChange={this.handleChangeName}></input><br/>
                 <input type="email" placeholder="Email Address" className="form-control" required></input><br/>
                 <input placeholder="dd/mm/yy" className="form-control" required></input><br/>
                 <input type="password" placeholder="Password" className="form-control" required></input><br/>
