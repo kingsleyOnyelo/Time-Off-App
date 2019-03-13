@@ -6,6 +6,39 @@ import {Link} from 'react-router-dom';
 
 
 class Login extends React.Component{
+    constructor(props){
+        super(props);
+
+        this.handleChangeEmail = this.handleChangeEmail.bind(this);
+
+
+
+
+        this.state = {
+            email: "",
+            password: null,
+            emailError: "*Email required",
+            passwordError: ""
+
+        };
+    };
+
+
+
+
+
+    handleChangeEmail(event){
+        let emailVal= event.target.value;
+        this.setState({email: emailVal});
+        const emailState = this.state.email;
+        //console.log(emailState);
+        if(emailState.includes("@")){
+            this.setState({emailError: "Valid department"})
+        }else{
+            this.setState({emailError: "Invalid department"})
+    }
+    };
+
     render(){
         return(
            
@@ -25,8 +58,8 @@ class Login extends React.Component{
                
                 <label className="lbl">ENTER DASHBOARD</label>
                
-                <input type="email" placeholder="Email Address" className="form-control"></input>
-                <small style={{color:"red"}}>Email required*</small>
+                <input type="email" placeholder="Email Address" className="form-control" onChange={this.handleChangeEmail} noValidate></input>
+                <small style={{color:"red"}}>{this.state.emailError}</small>
               
                 <input type="password" placeholder="Password" className="form-control"></input>
                 <small style={{color:"red"}}>Password required*</small><br/>

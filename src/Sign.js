@@ -107,7 +107,7 @@ handleSubmit(event){
 
             <div className="signCon2">
             
-            <form onSubmit={this.handleSubmit} noValidate>
+               <form onSubmit={this.handleSubmit} noValidate>
                 <label className="lbl">SIGN UP</label>
                 <input type="text" placeholder="Department" className="form-control" onChange={this.handleChange} noValidate></input>
                 <small style={{color:"red"}}>{this.state.departmentError}</small>
