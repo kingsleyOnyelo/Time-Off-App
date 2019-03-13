@@ -9,6 +9,7 @@ import Login from './Login';
 import {BrowserRouter} from 'react-router-dom';
 import {Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import Dashboard from './Dashboard';
 
 
 
@@ -21,17 +22,18 @@ class LandingPage extends React.Component{
                     <div>
                         <BrowserRouter>
                         <div className="con">
-                                <nav className="navBar">
+                                
+                        
+
+                                <Route path="/" exact render={()=>{
+                                    return <div>
+                                        <nav className="navBar">
                                 <Link to="/"><div className="spn"><h3 className="logo">TimeOff App</h3></div></Link>
                                     <div className="signUp">
                                     <Link to="/login"><input type="button" className="btn btn1" value="Login"></input></Link>
                                     <Link to="/sign"><input type="button" className="btn btn2" value="Sign Up"></input></Link>
                                     </div>
                                 </nav>
-                        
-
-                                <Route path="/" exact render={()=>{
-                                    return <div>
                                         <section>
                                     <div className="headCon">
                                         <h1 className="display-4 head1">TimeOff Management App</h1>
@@ -68,6 +70,7 @@ class LandingPage extends React.Component{
                                 
                                 <Route path="/sign" exact component={Sign}/>
                                 <Route path="/login" exact component={Login}/>
+                                <Route path="/dashboard" exact component={Dashboard}/>
                               
                                 </div>
                         
