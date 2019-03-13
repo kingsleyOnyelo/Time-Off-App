@@ -307,48 +307,45 @@ class Dashboard extends React.Component{
 <h4>All Absences</h4>
 <div class="row offRem">
                             
-                                    <div class="col-sm">
-                                    <div className="days1">
-                                        <h1 className="daysLeft">8</h1>
-                                        <hr></hr>
-                                        <small>21 days remaining out 1 days allowance for leave.</small>
-                                    </div>
+                                    <div class="col">
+            
+              
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Dates</th>
+        <th>Approved by</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Holiday</td>
+        <td>21/4/19</td>
+        <td>Kingsley Onyelo</td>
+        <td>Approved</td>
+      </tr>
+      <tr>
+        <td>Sickleave</td>
+        <td>21/4/19</td>
+        <td>Kingsley Onyelo</td>
+        <td>Not Approved</td>
+      </tr>
+      <tr>
+        <td>Holiday</td>
+        <td>21/4/19</td>
+        <td>Kingsley Onyelo</td>
+        <td>Approved</td>
+      </tr>
+      
+    </tbody>
+  </table>
                                     </div>
 
 
 
-                                    <div class="col-sm">
-                                    <div className="days1">
-                                        <h5>Used so far</h5>
-                                        <hr></hr>
-                                        <small>Holiday:____________________<span><small>12.5</small></span></small><br/>
-                                        <small>Sick Leave:___________<span><small>1 out of 12</small></span></small>
-                                    </div>
-                                    </div>
-
-
-                                    <div class="col-sm">
-                                    <div className="days1">
-                                        <h5>Avalaible Types</h5>
-                                        <hr></hr>
-                                        <small>Holiday.</small><br/>
-                                        <small>Maternity.</small><br/>
-                                        <small>Paternity Leave.</small><br/>
-                                        <small>Sick Leave (up to 10 days).</small>
-                                    </div>
-                                    </div>
-
-
-                                    <div class="col-sm">
-                                    <div className="days1">
-                                        <h5>Details</h5>
-                                        <hr></hr>
-                                        <small>Supervisor:________John Doe</small><br/>
-                                        <small>Department:___________Sales</small><br/>
-                                        <small>Allowance in 2018:__21 days</small><br/>
-                                        
-                                    </div>
-                                    </div>
+                                    
                             </div>
 
 
