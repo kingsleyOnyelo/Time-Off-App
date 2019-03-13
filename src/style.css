@@ -135,27 +135,12 @@ transform: scale(1.1);
     padding-left: 40px;
     text-align: center;
     left: 200px;
-    opacity:0.9;
+    opacity:0.8;
     display: flex;
     justify-content: center;
 }
 
 
-.signCon3{
-    width: 450px;
-    height: 40%;
-    background: black;
-    margin-top: 20px;
-    border-radius: 10px;
-    position: absolute;
-    padding: 10px;
-    padding-left: 40px;
-    text-align: center;
-    right: 200px;
-    opacity:0.9;
-    display: flex;
-    justify-content: center;
-}
 
 .lbl{
     color:orangered;
@@ -241,7 +226,8 @@ transform: scale(1.1);
         position: absolute;
         display: flex;
         background:url("./img/signupback.jpg");
-        
+        background-repeat: none;
+        background-size: cover;
     }
 
     .signCon2{
@@ -252,20 +238,10 @@ transform: scale(1.1);
         border-radius: 10px;
         position: absolute;
         left: 30px;
-        opacity:0.9;
+        opacity:0.8;
         display: block;
     }
-    .signCon3{
-        width: 300px;
-        height: 40%;
-        background: black;
-        display: block;
-        border-radius: 10px;
-        top: 540px;
-        opacity:0.9;
-        display: block;
-        left: 30px;
-    }
+   
     
    
   }

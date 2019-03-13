@@ -1,10 +1,11 @@
 import React from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.css'
-import backgroundImg from './img/backgroundImg.jpg';
+import backgroundImg from './img/backgroundImg.svg';
 import honey from './img/honey.svg';
-import matern from './img/matern.jpg';
+import matern from './img/matern.svg';
 import Sign from './Sign';
+import Login from './Login';
 import {BrowserRouter} from 'react-router-dom';
 import {Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
@@ -23,7 +24,7 @@ class LandingPage extends React.Component{
                                 <nav className="navBar">
                                 <Link to="/"><div className="spn"><h3 className="logo">TimeOff App</h3></div></Link>
                                     <div className="signUp">
-                                    <Link to="/sign"><input type="button" className="btn btn1" value="Login"></input></Link>
+                                    <Link to="/login"><input type="button" className="btn btn1" value="Login"></input></Link>
                                     <Link to="/sign"><input type="button" className="btn btn2" value="Sign Up"></input></Link>
                                     </div>
                                 </nav>
@@ -66,6 +67,7 @@ class LandingPage extends React.Component{
 
                                 
                                 <Route path="/sign" exact component={Sign}/>
+                                <Route path="/login" exact component={Login}/>
                               
                                 </div>
                         

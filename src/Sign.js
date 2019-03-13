@@ -7,69 +7,38 @@ import 'bootstrap/dist/css/bootstrap.css'
 export default class Sign extends React.Component{
     constructor(props){
         super(props);
-        this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleChangeName = this.handleChangeName.bind(this);
-        this.handleChangePass = this.handleChangePass.bind(this);
-        this.handleChangePass2 = this.handleChangePass2.bind(this);
-    }
-
-    state = {
-        signup : "SIGN UP",
-        dept:"",
-        name: "",
-        email: "",
-        password: "",
-        password2: "",
-
-    };
-
-    handleChange(event){
-       const deptVal = event.target.value;
-       this.setState({dept: deptVal});
-    }
-
-    handleChangeName(event){
-        const nameVal = event.target.value;
-        this.setState({dept: nameVal});
-    }
-
-    handleChangePass(event){
-        const passVal = event.target.value;
-        this.setState({dept: passVal});
-    }
-
-    handleChangePass2(event){
-        const pass2Val = event.target.value;
-        this.setState({dept: pass2Val});
-    }
-
-    handleClick(){
-        
-            if(this.state.signup = "WELCOME")
-        this.setState({signup: this.state.signup = "WELCOME"});
-        if(this.state.dept === ""){
-        this.setState({dept: this.state.dept = alert("please enter a Department")});
-        }else{
-            this.setState({dept: alert( ` Okay ${this.state.dept}`)});
-        }
-
-
-        if(this.state.name === ""){
-            this.setState({name: this.state.name = alert("please enter a name")});
-            }else{
-                this.setState({name: this.state.name});
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {
+            department : null,
+            name: null,
+            email: null,
+            password: null,
+            formErros : {
+                name: "",
+                email: "",
+                password: ""
             }
 
-
-
-            if(this.state.password2 !== this.state.password){
-                alert("please check password match");
-                }else{
-                    alert("password match");
-                }
+        };
     }
 
+
+    handleChange(event){
+        let deptVal= event.target.value;
+        this.setState({department: deptVal});
+
+        console.log(this.state.department);
+    
+            
+    }
+
+
+
+    
+handleSubmit = ()=> {
+    
+}
     render(){
         return (
             <div>
@@ -78,21 +47,25 @@ export default class Sign extends React.Component{
 
             <div className="signCon2">
             
-            <form>
+            <form onSubmit={this.handleSubmit} noValidate>
                 <label className="lbl">SIGN UP</label>
-                <input type="text" placeholder="Department" className="form-control" onChange={this.handleChange}></input><br/>
-                <input type="text" placeholder="Name" className="form-control" onChange={this.handleChangeName}></input><br/>
-                <input type="email" placeholder="Email Address" className="form-control" required></input><br/>
-                <input placeholder="dd/mm/yy" className="form-control" required></input><br/>
-                <input type="password" placeholder="Password" className="form-control" onChange={this.handleChangePass}></input><br/>
-                <input type="password" placeholder="Confirm Password" className="form-control" onChange={this.handleChangePass2}></input><br/>
+                <input type="text" placeholder="Department" className="form-control" onChange={this.handleChange} noValidate></input>
+                <small style={{color:"red"}}>Department required*</small>
+                <input type="text" placeholder="Name" className="form-control" onChange={this.handleChangeName} noValidate></input>
+                <small style={{color:"red"}}>Name required*</small>
+                <input type="email" placeholder="Email Address" className="form-control" onChange={this.handleChangeEmail} noValidate></input>
+                <small style={{color:"red"}}>Email required*</small>
+                <input placeholder="dd/mm/yy" className="form-control" onChange={this.handleChangeDOB} noValidate></input>
+                <small style={{color:"red"}}>DOB required*</small>
+                <input type="password" placeholder="Password" className="form-control" onChange={this.handleChangePass} noValidate></input><br/>
+                <input type="password" placeholder="Confirm Password" className="form-control" onChange={this.handleChangePass2} noValidate></input><br/>
                 <select name="Country" className="fname form-control">
                     <option value="Canada" >Canada</option>
                     <option value="USA">USA</option>
                     <option value="Dubai">Dubai</option>
                     <option value="Ghana">Ghana</option>
                 </select><br/>
-                <input type="button" value="Submit" className="fname1" onClick={this.handleClick}></input>
+                <input type="submit" value="Submit" className="fname1" onClick={this.handleClick}></input>
             </form>
             
                 
@@ -100,23 +73,7 @@ export default class Sign extends React.Component{
             </div>
             
 
-            <div className="signCon3">
             
-            <form>
-                <p style={{color:"white"}}>Login to view dashboard if you've already signed up</p>
-                <label className="lbl">ENTER DASHBOARD</label>
-               
-                <input type="email" placeholder="Email Address" className="form-control" required></input><br/>
-              
-                <input type="password" placeholder="Password" className="form-control" required></input><br/>
-              
-                
-                <input type="button" value="Login" className="fname1"></input>
-            </form>
-            
-                
-                
-            </div>
         </div>
         </div>
         
