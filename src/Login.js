@@ -2,6 +2,7 @@ import React from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom';
+import 'react-inputs-validation/lib/react-inputs-validation.min.css';
 
 
 
@@ -10,15 +11,18 @@ class Login extends React.Component{
         super(props);
 
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
+        this.handleChangePassword = this.handleChangePassword.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
 
 
 
         this.state = {
             email: "",
-            password: null,
-            emailError: "*Email required",
-            passwordError: ""
+            password:"",
+            emailError: "",
+            passwordError: "",
+           
 
         };
     };
@@ -33,11 +37,36 @@ class Login extends React.Component{
         const emailState = this.state.email;
         //console.log(emailState);
         if(emailState.includes("@")){
-            this.setState({emailError: "Valid department"})
+            this.setState({emailError: "Valid Email"})
         }else{
-            this.setState({emailError: "Invalid department"})
+            this.setState({emailError: "Invalid Email"})
     }
     };
+
+
+    handleChangePassword(event){
+        let passwordVal= event.target.value;
+        this.setState({password: passwordVal});
+        const passwordState = this.state.password;
+        //console.log(emailState);
+        if(passwordState.length > 0){
+            this.setState({passwordError: ""})
+        }else{
+            this.setState({passwordError: "Invalid password"})
+    }
+    }
+
+    handleSubmit(event){
+        event.preventDefault();
+            if(this.state.email === "" || this.state.password === ""){
+                this.setState({emailError: "*Please enter email"});
+                this.setState({passwordError: "Enter password"});
+            }else{
+                this.props.history.push('/dashboard');
+            }
+
+            
+    }
 
     render(){
         return(
@@ -54,16 +83,16 @@ class Login extends React.Component{
                 <div className="signDiv1">
                 <div className="signCon2">
             
-            <form>
+            <form onSubmit={this.handleSubmit} action="/dashboard">
                
                 <label className="lbl">ENTER DASHBOARD</label>
                
-                <input type="email" placeholder="Email Address" className="form-control" onChange={this.handleChangeEmail} noValidate></input>
-                <small style={{color:"red"}}>{this.state.emailError}</small>
+                <input type="email" placeholder="Email Address" className="form-control" onChange={this.handleChangeEmail} ></input>
+                <small style={{color:"white"}}>{this.state.emailError}</small><br/>
               
-                <input type="password" placeholder="Password" className="form-control"></input>
-                <small style={{color:"red"}}>Password required*</small><br/>
-                <Link to="/dashboard"><input type="button" value="Login" className="fname1"></input></Link>
+                <input type="password" placeholder="Password" className="form-control" onChange={this.handleChangePassword}></input>
+                <small style={{color:"white"}}>{this.state.passwordError}</small><br/>
+                <input type="submit" value="Login" className="fname1"></input>
             </form>
             
                 

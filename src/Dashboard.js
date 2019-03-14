@@ -26,9 +26,9 @@ class Dashboard extends React.Component{
                         <div className="container-fluid">
                         <br/>
                         <h3>Employee Calendar</h3><small>John Doe Calendar's </small><br/><h4>Statistics</h4>
-                            <div class="row offRem">
+                            <div className="row offRem">
                             
-                                    <div class="col-sm">
+                                    <div className="col-sm">
                                     <div className="days1">
                                         <h1 className="daysLeft">8</h1>
                                         <hr></hr>
@@ -38,7 +38,7 @@ class Dashboard extends React.Component{
 
 
 
-                                    <div class="col-sm">
+                                    <div className="col-sm">
                                     <div className="days1">
                                         <h5>Used so far</h5>
                                         <hr></hr>
@@ -48,7 +48,7 @@ class Dashboard extends React.Component{
                                     </div>
 
 
-                                    <div class="col-sm">
+                                    <div className="col-sm">
                                     <div className="days1">
                                         <h5>Avalaible Types</h5>
                                         <hr></hr>
@@ -60,7 +60,7 @@ class Dashboard extends React.Component{
                                     </div>
 
 
-                                    <div class="col-sm">
+                                    <div className="col-sm">
                                     <div className="days1">
                                         <h5>Details</h5>
                                         <hr></hr>
@@ -78,9 +78,9 @@ class Dashboard extends React.Component{
 
 
                             <h4>Calendar</h4>
-                            <div class="row offRem">
+                            <div className="row offRem">
                             
-                                    <div class="col-sm">
+                                    <div className="col-sm">
         
                                     
 
@@ -162,7 +162,7 @@ class Dashboard extends React.Component{
 
 
                                     
-                                    <div class="col-sm">
+                                    <div className="col-sm">
                                     <ul className="weekdays">
   <li>Mo</li>
   <li>Tu</li>
@@ -210,7 +210,7 @@ class Dashboard extends React.Component{
                                     </div>
 
 
-                                    <div class="col-sm">
+                                    <div className="col-sm">
                                     <ul className="weekdays">
   <li>Mo</li>
   <li>Tu</li>
@@ -258,7 +258,7 @@ class Dashboard extends React.Component{
                                     </div>
 
 
-                                    <div class="col-sm">
+                                    <div className="col-sm">
                                     <ul className="weekdays">
   <li>Mo</li>
   <li>Tu</li>
@@ -311,12 +311,12 @@ class Dashboard extends React.Component{
 
 
 <h4>All Absences</h4>
-<div class="row offRem">
+<div className="row offRem">
                             
-                                    <div class="col">
+                                    <div className="col">
             
               
-  <table class="table">
+  <table className="table">
     <thead>
       <tr>
         <th>Type</th>
