@@ -10,6 +10,7 @@ import {BrowserRouter} from 'react-router-dom';
 import {Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import Dashboard from './Dashboard';
+import AbsentForm from './AbsentForm';
 
 
 
@@ -71,6 +72,7 @@ class LandingPage extends React.Component{
                                 <Route path="/sign" exact component={Sign}/>
                                 <Route path="/login" exact component={Login}/>
                                 <Route path="/dashboard" exact component={Dashboard}/>
+                                <Route path="/absentform" exact component={AbsentForm}/>
                               
                                 </div>
                         

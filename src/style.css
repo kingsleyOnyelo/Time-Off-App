@@ -172,17 +172,6 @@ transform: scale(1.1);
 .daysLeft{
     font-size: 80px;
 }
-
-
-
-
-
-
-
-
-
-
-
 .weekdays {
   margin: 0;
   padding: 10px 0;
@@ -217,6 +206,44 @@ transform: scale(1.1);
   background: #1abc9c;
   color: white !important
 }
+.absent{
+    width: 400px;
+    height: 80px;
+    display: inline-block;
+    position: relative;
+    left: 600px;
+}
+.leave{
+    background: red;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    font-size: 18px;
+    padding: 7px;
+    padding-left: 30px;
+    cursor: pointer;
+}
+.listAb{
+    list-style: none;
+    color: white;
+}
+
+
+/*absentform style */
+
+.formDiv{
+    width: 60%;
+    position: relative;
+    left: 300px;
+}
+
+.lbl4{
+    margin-left: 355px;
+}
+
 
 
 
