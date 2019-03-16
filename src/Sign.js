@@ -104,7 +104,7 @@ let me2 = this.state.name;
 let me3 = this.state.email;
 let me4 = this.state.password;
 let me5 = this.state.password2;
-if( me === "" && me2 === "" && me3 === "" && me4.length !== me5.length){
+if( me === "" && me2 === "" && me3 === "" && me4.length !== me5.length || me4 === ""){
     this.setState({departmentError: "*Please enter department"});
     this.setState({nameError: "*Please enter name"});
     this.setState({emailError: "*Please enter email"});
