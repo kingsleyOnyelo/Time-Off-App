@@ -2,7 +2,6 @@ import React from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom';
-import 'react-inputs-validation/lib/react-inputs-validation.min.css';
 
 
 
@@ -61,8 +60,10 @@ class Login extends React.Component{
             if(this.state.email === "" || this.state.password === ""){
                 this.setState({emailError: "*Please enter email"});
                 this.setState({passwordError: "Enter password"});
+                console.log(this.state.password.length);
             }else{
                 this.props.history.push('/dashboard');
+                console.log(this.state.password.length);
             }
 
             
@@ -83,7 +84,7 @@ class Login extends React.Component{
                 <div className="signDiv1">
                 <div className="signCon2">
             
-            <form onSubmit={this.handleSubmit} action="/dashboard">
+            <form onSubmit={this.handleSubmit}>
                
                 <label className="lbl">ENTER DASHBOARD</label>
                

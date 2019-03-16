@@ -12,17 +12,19 @@ export default class Sign extends React.Component{
         this.handleChangeName = this.handleChangeName.bind(this);
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
         this.handleChangePass = this.handleChangePass.bind(this);
+        this.handleChangePass2 = this.handleChangePass2.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            department : null,
-            name: null,
+            department :"",
+            name:"",
             email: "",
-            password: null,
+            password:"",
             password2:"",
-            departmentError : "*Department required",
-            nameError: "*Name required",
-            emailError: "*Email required",
-            passwordError: ""
+            departmentError : "",
+            nameError: "",
+            emailError: "",
+            passwordError: "",
+            dobError:""
 
         };
     }
@@ -68,17 +70,24 @@ export default class Sign extends React.Component{
 
     handleChangePass(event){
         let passwordVal= event.target.value;
-        //let password2Val= event.target.value;
         this.setState({password: passwordVal});
-        //this.setState({password2: password2Val});
         const passwordState = this.state.password;
-        //const password2State = this.state.password2;
-        console.log(passwordState);
-      //  console.log(password2State);
-       if(passwordState){
-            this.setState({passwordError: "Password match"})
+       if(passwordState.length < 0){
+            this.setState({passwordError: "Enter Password"})
         }else{
-            this.setState({passwordError: "Password not match"})
+            this.setState({passwordError: ""})
+    } 
+    }
+
+
+    handleChangePass2(event){
+        let password2Val= event.target.value;
+        this.setState({password2: password2Val});
+        const password2State = this.state.password2;
+       if(password2State.length < 0){
+            this.setState({passwordError: "Enter Password"})
+        }else{
+            this.setState({passwordError: ""})
     } 
     }
   
@@ -87,7 +96,24 @@ export default class Sign extends React.Component{
 
     
 handleSubmit(event){
+event.preventDefault();
 
+
+let me = this.state.department;
+let me2 = this.state.name;
+let me3 = this.state.email;
+let me4 = this.state.password;
+let me5 = this.state.password2;
+if( me === "" && me2 === "" && me3 === "" && me4.length !== me5.length){
+    this.setState({departmentError: "*Please enter department"});
+    this.setState({nameError: "*Please enter name"});
+    this.setState({emailError: "*Please enter email"});
+    this.setState({dobError: "*Please enter DOB"});
+    this.setState({passwordError: "*Please enter password"});
+   
+}else{
+    this.props.history.push('/login');
+}
          
 };
 
@@ -107,19 +133,20 @@ handleSubmit(event){
 
             <div className="signCon2">
             
-               <form onSubmit={this.handleSubmit} noValidate>
+               <form onSubmit={this.handleSubmit}>
                 <label className="lbl">SIGN UP</label>
-                <input type="text" placeholder="Department" className="form-control" onChange={this.handleChange} noValidate></input>
-                <small style={{color:"red"}}>{this.state.departmentError}</small>
-                <input type="text" placeholder="Name" className="form-control" onChange={this.handleChangeName} noValidate></input>
-                <small style={{color:"red"}}>{this.state.nameError}</small>
-                <input type="email" placeholder="Email Address" className="form-control" onChange={this.handleChangeEmail} noValidate></input>
-                <small style={{color:"red"}}>{this.state.emailError}</small>
-                <input placeholder="dd/mm/yy" className="form-control" onChange={this.handleChangeDOB} noValidate></input>
-                <small style={{color:"red"}}>DOB required*</small>
-                <input type="password" placeholder="Password" className="form-control" onChange={this.handleChangePass} noValidate></input><br/>
-                <input type="password" placeholder="Confirm Password" className="form-control" onChange={this.handleChangePass} noValidate></input>
-                <small style={{color:"red"}}>{this.state.passwordError}</small>
+                <input type="text" placeholder="Department" className="form-control" onChange={this.handleChange} ></input>
+                <small style={{color:"white"}}>{this.state.departmentError}</small><br/>
+                <input type="text" placeholder="Name" className="form-control" onChange={this.handleChangeName} ></input>
+                <small style={{color:"white"}}>{this.state.nameError}</small><br/>
+                <input type="email" placeholder="Email Address" className="form-control" onChange={this.handleChangeEmail} ></input>
+                <small style={{color:"white"}}>{this.state.emailError}</small><br/>
+                <input placeholder="dd/mm/yy" className="form-control" onChange={this.handleChangeDOB} ></input>
+                <small style={{color:"white"}}>{this.state.dobError}</small><br/>
+                <input type="password" placeholder="Password" className="form-control" onChange={this.handleChangePass} ></input>
+                <small style={{color:"white"}}>{this.state.passwordError}</small><br/>
+                <input type="password" placeholder="Confirm Password" className="form-control" onChange={this.handleChangePass2} ></input>
+                <small style={{color:"white"}}></small>
                 <br/>
                 <select name="Country" className="fname form-control">
                     <option value="Canada" >Canada</option>
@@ -127,7 +154,7 @@ handleSubmit(event){
                     <option value="Dubai">Dubai</option>
                     <option value="Ghana">Ghana</option>
                 </select><br/>
-                <input type="submit" value="Submit" className="fname1" onClick={this.handleClick}></input>
+                <input type="submit" value="Submit" className="fname1"></input>
             </form>
             
                 
