@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
 import backgroundImg from './img/backgroundImg.svg';
 import honey from './img/honey.svg';
 import matern from './img/matern.svg';
@@ -11,6 +11,7 @@ import {Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import Dashboard from './Dashboard';
 import AbsentForm from './AbsentForm';
+import TeamView from './TeamView';
 
 
 
@@ -73,6 +74,7 @@ class LandingPage extends React.Component{
                                 <Route path="/login" exact component={Login}/>
                                 <Route path="/dashboard" exact component={Dashboard}/>
                                 <Route path="/absentform" exact component={AbsentForm}/>
+                                <Route path="/teamview" exact component={TeamView}/>
                               
                                 </div>
                         

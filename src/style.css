@@ -226,6 +226,22 @@ transform: scale(1.1);
     padding-left: 30px;
     cursor: pointer;
 }
+
+.leave2{
+    background: red;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    font-size: 18px;
+    padding: 7px;
+    padding-left: 30px;
+    cursor: pointer;
+    margin-left: 180px;
+}
+
 .listAb{
     list-style: none;
     color: white;

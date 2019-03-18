@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import LandingPage from './LandingPage';
+//import Notes from './Notes';
+
+
+
+
+
+
 
 ReactDOM.render(<LandingPage />, document.getElementById('root'));
 

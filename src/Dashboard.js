@@ -14,6 +14,10 @@ class Dashboard extends React.Component{
                                 <Link to="/absentform"><ul className="leave">
                                     <li className="listAb">Leave Form</li>
                                   </ul></Link>
+
+                                  <Link to="/teamview"><ul className="leave2">
+                                    <li className="listAb">Team View</li>
+                                  </ul></Link>
                                 </div>
                                     <div className="signUp">
                                     
@@ -42,8 +46,8 @@ class Dashboard extends React.Component{
                                     <div className="days1">
                                         <h5>Used so far</h5>
                                         <hr></hr>
-                                        <small>Holiday:____________________<span><small>12.5</small></span></small><br/>
-                                        <small>Sick Leave:___________<span><small>1 out of 12</small></span></small>
+                                        <small>Holiday:<span style={{float: "right"}}><small>12.5</small></span></small><br/>
+                                        <small>Sick Leave:<span style={{float: "right"}}><small>1 out of 12</small></span></small>
                                     </div>
                                     </div>
 
@@ -64,9 +68,9 @@ class Dashboard extends React.Component{
                                     <div className="days1">
                                         <h5>Details</h5>
                                         <hr></hr>
-                                        <small>Supervisor:________John Doe</small><br/>
-                                        <small>Department:___________Sales</small><br/>
-                                        <small>Allowance in 2018:__21 days</small><br/>
+                                        <small>Supervisor:<span style={{float:"right"}}>John Doe</span></small><br/>
+                                        <small>Department:<span style={{float: "right"}}>Sales</span></small><br/>
+                                        <small>Allowance in 2018:<span style={{float: "right"}}>21 days</span></small><br/>
                                         
                                     </div>
                                     </div>
@@ -77,10 +81,10 @@ class Dashboard extends React.Component{
 
 
 
-                            <h4>Calendar</h4>
-                            <div className="row offRem">
+                            <a href="#toggleUs" data-toggle="collapse" className="btn btn-success btn-xs">Show more</a>
+                            <div className="row offRem jumbotron">
                             
-                                    <div className="col-sm">
+                                    <div className="col-sm " >
                                             <ul className="weekdays">
                                               <li>Mo</li>
                                               <li>Tu</li>
@@ -266,6 +270,632 @@ class Dashboard extends React.Component{
                                                 <li>30</li>
                                                 <li>31</li>
                                               </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div className="row offRem jumbotron collapse" id="toggleUs">
+                            
+                                    <div className="col-sm " >
+                                            <ul className="weekdays">
+                                              <li>Mo</li>
+                                              <li>Tu</li>
+                                              <li>We</li>
+                                              <li>Th</li>
+                                              <li>Fr</li>
+                                              <li>Sa</li>
+                                              <li>Su</li>
+                                            </ul>
+
+                                            <ul className="days">  
+                                              <li>1</li>
+                                              <li>2</li>
+                                              <li>3</li>
+                                              <li>4</li>
+                                              <li>5</li>
+                                              <li>6</li>
+                                              <li>7</li>
+                                              <li>8</li>
+                                              <li>9</li>
+                                              <li><span className="active">10</span></li>
+                                              <li>11</li>
+                                              <li>12</li>
+                                              <li>13</li>
+                                              <li>14</li>
+                                              <li>15</li>
+                                              <li>16</li>
+                                              <li>17</li>
+                                              <li>18</li>
+                                              <li>19</li>
+                                              <li>20</li>
+                                              <li>21</li>
+                                              <li>22</li>
+                                              <li>23</li>
+                                              <li>24</li>
+                                              <li>25</li>
+                                              <li>26</li>
+                                              <li>27</li>
+                                              <li>28</li>
+                                              <li>29</li>
+                                              <li>30</li>
+                                              <li>31</li>
+                                            </ul>
+                </div>
+
+
+                                    
+                                    <div className="col-sm">
+                                    <ul className="weekdays">
+                                                <li>Mo</li>
+                                                <li>Tu</li>
+                                                <li>We</li>
+                                                <li>Th</li>
+                                                <li>Fr</li>
+                                                <li>Sa</li>
+                                                <li>Su</li>
+                                              </ul>
+
+                                              <ul className="days">  
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                                <li>6</li>
+                                                <li>7</li>
+                                                <li>8</li>
+                                                <li>9</li>
+                                                <li><span className="active">10</span></li>
+                                                <li>11</li>
+                                                <li>12</li>
+                                                <li>13</li>
+                                                <li>14</li>
+                                                <li>15</li>
+                                                <li>16</li>
+                                                <li>17</li>
+                                                <li>18</li>
+                                                <li>19</li>
+                                                <li>20</li>
+                                                <li>21</li>
+                                                <li>22</li>
+                                                <li>23</li>
+                                                <li>24</li>
+                                                <li>25</li>
+                                                <li>26</li>
+                                                <li>27</li>
+                                                <li>28</li>
+                                                <li>29</li>
+                                                <li>30</li>
+                                                <li>31</li>
+                                              </ul>
+</div>
+
+
+<div className="col-sm">
+                                    <ul className="weekdays">
+                                                <li>Mo</li>
+                                                <li>Tu</li>
+                                                <li>We</li>
+                                                <li>Th</li>
+                                                <li>Fr</li>
+                                                <li>Sa</li>
+                                                <li>Su</li>
+                                              </ul>
+
+                                              <ul className="days">  
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                                <li>6</li>
+                                                <li>7</li>
+                                                <li>8</li>
+                                                <li>9</li>
+                                                <li><span className="active">10</span></li>
+                                                <li>11</li>
+                                                <li>12</li>
+                                                <li>13</li>
+                                                <li>14</li>
+                                                <li>15</li>
+                                                <li>16</li>
+                                                <li>17</li>
+                                                <li>18</li>
+                                                <li>19</li>
+                                                <li>20</li>
+                                                <li>21</li>
+                                                <li>22</li>
+                                                <li>23</li>
+                                                <li>24</li>
+                                                <li>25</li>
+                                                <li>26</li>
+                                                <li>27</li>
+                                                <li>28</li>
+                                                <li>29</li>
+                                                <li>30</li>
+                                                <li>31</li>
+                                              </ul>
+</div>
+
+
+<div className="col-sm">
+                                    <ul className="weekdays">
+                                                <li>Mo</li>
+                                                <li>Tu</li>
+                                                <li>We</li>
+                                                <li>Th</li>
+                                                <li>Fr</li>
+                                                <li>Sa</li>
+                                                <li>Su</li>
+                                              </ul>
+
+                                              <ul className="days">  
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                                <li>6</li>
+                                                <li>7</li>
+                                                <li>8</li>
+                                                <li>9</li>
+                                                <li><span className="active">10</span></li>
+                                                <li>11</li>
+                                                <li>12</li>
+                                                <li>13</li>
+                                                <li>14</li>
+                                                <li>15</li>
+                                                <li>16</li>
+                                                <li>17</li>
+                                                <li>18</li>
+                                                <li>19</li>
+                                                <li>20</li>
+                                                <li>21</li>
+                                                <li>22</li>
+                                                <li>23</li>
+                                                <li>24</li>
+                                                <li>25</li>
+                                                <li>26</li>
+                                                <li>27</li>
+                                                <li>28</li>
+                                                <li>29</li>
+                                                <li>30</li>
+                                                <li>31</li>
+                                              </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div className="row offRem jumbotron collapse" id="toggleUs">
+                            
+                                    <div className="col-sm " >
+                                            <ul className="weekdays">
+                                              <li>Mo</li>
+                                              <li>Tu</li>
+                                              <li>We</li>
+                                              <li>Th</li>
+                                              <li>Fr</li>
+                                              <li>Sa</li>
+                                              <li>Su</li>
+                                            </ul>
+
+                                            <ul className="days">  
+                                              <li>1</li>
+                                              <li>2</li>
+                                              <li>3</li>
+                                              <li>4</li>
+                                              <li>5</li>
+                                              <li>6</li>
+                                              <li>7</li>
+                                              <li>8</li>
+                                              <li>9</li>
+                                              <li><span className="active">10</span></li>
+                                              <li>11</li>
+                                              <li>12</li>
+                                              <li>13</li>
+                                              <li>14</li>
+                                              <li>15</li>
+                                              <li>16</li>
+                                              <li>17</li>
+                                              <li>18</li>
+                                              <li>19</li>
+                                              <li>20</li>
+                                              <li>21</li>
+                                              <li>22</li>
+                                              <li>23</li>
+                                              <li>24</li>
+                                              <li>25</li>
+                                              <li>26</li>
+                                              <li>27</li>
+                                              <li>28</li>
+                                              <li>29</li>
+                                              <li>30</li>
+                                              <li>31</li>
+                                            </ul>
+                </div>
+
+
+                                    
+                                    <div className="col-sm">
+                                    <ul className="weekdays">
+                                                <li>Mo</li>
+                                                <li>Tu</li>
+                                                <li>We</li>
+                                                <li>Th</li>
+                                                <li>Fr</li>
+                                                <li>Sa</li>
+                                                <li>Su</li>
+                                              </ul>
+
+                                              <ul className="days">  
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                                <li>6</li>
+                                                <li>7</li>
+                                                <li>8</li>
+                                                <li>9</li>
+                                                <li><span className="active">10</span></li>
+                                                <li>11</li>
+                                                <li>12</li>
+                                                <li>13</li>
+                                                <li>14</li>
+                                                <li>15</li>
+                                                <li>16</li>
+                                                <li>17</li>
+                                                <li>18</li>
+                                                <li>19</li>
+                                                <li>20</li>
+                                                <li>21</li>
+                                                <li>22</li>
+                                                <li>23</li>
+                                                <li>24</li>
+                                                <li>25</li>
+                                                <li>26</li>
+                                                <li>27</li>
+                                                <li>28</li>
+                                                <li>29</li>
+                                                <li>30</li>
+                                                <li>31</li>
+                                              </ul>
+</div>
+
+
+<div className="col-sm">
+                                    <ul className="weekdays">
+                                                <li>Mo</li>
+                                                <li>Tu</li>
+                                                <li>We</li>
+                                                <li>Th</li>
+                                                <li>Fr</li>
+                                                <li>Sa</li>
+                                                <li>Su</li>
+                                              </ul>
+
+                                              <ul className="days">  
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                                <li>6</li>
+                                                <li>7</li>
+                                                <li>8</li>
+                                                <li>9</li>
+                                                <li><span className="active">10</span></li>
+                                                <li>11</li>
+                                                <li>12</li>
+                                                <li>13</li>
+                                                <li>14</li>
+                                                <li>15</li>
+                                                <li>16</li>
+                                                <li>17</li>
+                                                <li>18</li>
+                                                <li>19</li>
+                                                <li>20</li>
+                                                <li>21</li>
+                                                <li>22</li>
+                                                <li>23</li>
+                                                <li>24</li>
+                                                <li>25</li>
+                                                <li>26</li>
+                                                <li>27</li>
+                                                <li>28</li>
+                                                <li>29</li>
+                                                <li>30</li>
+                                                <li>31</li>
+                                              </ul>
+</div>
+
+
+<div className="col-sm">
+                                    <ul className="weekdays">
+                                                <li>Mo</li>
+                                                <li>Tu</li>
+                                                <li>We</li>
+                                                <li>Th</li>
+                                                <li>Fr</li>
+                                                <li>Sa</li>
+                                                <li>Su</li>
+                                              </ul>
+
+                                              <ul className="days">  
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                                <li>6</li>
+                                                <li>7</li>
+                                                <li>8</li>
+                                                <li>9</li>
+                                                <li><span className="active">10</span></li>
+                                                <li>11</li>
+                                                <li>12</li>
+                                                <li>13</li>
+                                                <li>14</li>
+                                                <li>15</li>
+                                                <li>16</li>
+                                                <li>17</li>
+                                                <li>18</li>
+                                                <li>19</li>
+                                                <li>20</li>
+                                                <li>21</li>
+                                                <li>22</li>
+                                                <li>23</li>
+                                                <li>24</li>
+                                                <li>25</li>
+                                                <li>26</li>
+                                                <li>27</li>
+                                                <li>28</li>
+                                                <li>29</li>
+                                                <li>30</li>
+                                                <li>31</li>
+                                              </ul>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div className="row offRem jumbotron collapse" id="toggleUs">
+                            
+                                    <div className="col-sm " >
+                                            <ul className="weekdays">
+                                              <li>Mo</li>
+                                              <li>Tu</li>
+                                              <li>We</li>
+                                              <li>Th</li>
+                                              <li>Fr</li>
+                                              <li>Sa</li>
+                                              <li>Su</li>
+                                            </ul>
+
+                                            <ul className="days">  
+                                              <li>1</li>
+                                              <li>2</li>
+                                              <li>3</li>
+                                              <li>4</li>
+                                              <li>5</li>
+                                              <li>6</li>
+                                              <li>7</li>
+                                              <li>8</li>
+                                              <li>9</li>
+                                              <li><span className="active">10</span></li>
+                                              <li>11</li>
+                                              <li>12</li>
+                                              <li>13</li>
+                                              <li>14</li>
+                                              <li>15</li>
+                                              <li>16</li>
+                                              <li>17</li>
+                                              <li>18</li>
+                                              <li>19</li>
+                                              <li>20</li>
+                                              <li>21</li>
+                                              <li>22</li>
+                                              <li>23</li>
+                                              <li>24</li>
+                                              <li>25</li>
+                                              <li>26</li>
+                                              <li>27</li>
+                                              <li>28</li>
+                                              <li>29</li>
+                                              <li>30</li>
+                                              <li>31</li>
+                                            </ul>
+                </div>
+
+
+                                    
+                                    <div className="col-sm">
+                                    <ul className="weekdays">
+                                                <li>Mo</li>
+                                                <li>Tu</li>
+                                                <li>We</li>
+                                                <li>Th</li>
+                                                <li>Fr</li>
+                                                <li>Sa</li>
+                                                <li>Su</li>
+                                              </ul>
+
+                                              <ul className="days">  
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                                <li>6</li>
+                                                <li>7</li>
+                                                <li>8</li>
+                                                <li>9</li>
+                                                <li><span className="active">10</span></li>
+                                                <li>11</li>
+                                                <li>12</li>
+                                                <li>13</li>
+                                                <li>14</li>
+                                                <li>15</li>
+                                                <li>16</li>
+                                                <li>17</li>
+                                                <li>18</li>
+                                                <li>19</li>
+                                                <li>20</li>
+                                                <li>21</li>
+                                                <li>22</li>
+                                                <li>23</li>
+                                                <li>24</li>
+                                                <li>25</li>
+                                                <li>26</li>
+                                                <li>27</li>
+                                                <li>28</li>
+                                                <li>29</li>
+                                                <li>30</li>
+                                                <li>31</li>
+                                              </ul>
+</div>
+
+
+<div className="col-sm">
+                                    <ul className="weekdays">
+                                                <li>Mo</li>
+                                                <li>Tu</li>
+                                                <li>We</li>
+                                                <li>Th</li>
+                                                <li>Fr</li>
+                                                <li>Sa</li>
+                                                <li>Su</li>
+                                              </ul>
+
+                                              <ul className="days">  
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                                <li>6</li>
+                                                <li>7</li>
+                                                <li>8</li>
+                                                <li>9</li>
+                                                <li><span className="active">10</span></li>
+                                                <li>11</li>
+                                                <li>12</li>
+                                                <li>13</li>
+                                                <li>14</li>
+                                                <li>15</li>
+                                                <li>16</li>
+                                                <li>17</li>
+                                                <li>18</li>
+                                                <li>19</li>
+                                                <li>20</li>
+                                                <li>21</li>
+                                                <li>22</li>
+                                                <li>23</li>
+                                                <li>24</li>
+                                                <li>25</li>
+                                                <li>26</li>
+                                                <li>27</li>
+                                                <li>28</li>
+                                                <li>29</li>
+                                                <li>30</li>
+                                                <li>31</li>
+                                              </ul>
+</div>
+
+
+<div className="col-sm">
+                                    <ul className="weekdays">
+                                                <li>Mo</li>
+                                                <li>Tu</li>
+                                                <li>We</li>
+                                                <li>Th</li>
+                                                <li>Fr</li>
+                                                <li>Sa</li>
+                                                <li>Su</li>
+                                              </ul>
+
+                                              <ul className="days">  
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                                <li>6</li>
+                                                <li>7</li>
+                                                <li>8</li>
+                                                <li>9</li>
+                                                <li><span className="active">10</span></li>
+                                                <li>11</li>
+                                                <li>12</li>
+                                                <li>13</li>
+                                                <li>14</li>
+                                                <li>15</li>
+                                                <li>16</li>
+                                                <li>17</li>
+                                                <li>18</li>
+                                                <li>19</li>
+                                                <li>20</li>
+                                                <li>21</li>
+                                                <li>22</li>
+                                                <li>23</li>
+                                                <li>24</li>
+                                                <li>25</li>
+                                                <li>26</li>
+                                                <li>27</li>
+                                                <li>28</li>
+                                                <li>29</li>
+                                                <li>30</li>
+                                                <li>31</li>
+                                              </ul>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 

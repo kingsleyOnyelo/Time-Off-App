@@ -39,9 +39,9 @@ class AbsentForm extends React.Component{
                             
                             <label>From</label>
                             <label className="lbl4">To</label><br/>
-                            <input type="date" className="col-sm-6" value="2018-07-22" min="2018-01-01" max="2018-12-31"></input>
+                            <input type="date" className="col-sm-6" value="2019-03-18" min="2018-01-01" max="2018-12-31"></input>
                             
-                            <input type="date" className="col-sm-6" value="2018-07-22" min="2018-01-01" max="2018-12-31"></input><br/><br/>
+                            <input type="date" className="col-sm-6" value="2020-07-22" min="2018-01-01" max="2018-12-31"></input><br/><br/>
                             <input type="text" placeholder="duration"></input><br/><br/>
                             <textarea rows="4" cols="50" className="col-sm">
 
