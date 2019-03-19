@@ -46,9 +46,7 @@ class Login extends React.Component{
     handleChangePassword(event){
         let passwordVal= event.target.value;
         this.setState({password: passwordVal});
-        const passwordState = this.state.password;
-        //console.log(emailState);
-        if(passwordState.length > 0){
+        if(passwordVal.length > 0){
             this.setState({passwordError: ""})
         }else{
             this.setState({passwordError: "Invalid password"})
@@ -60,10 +58,9 @@ class Login extends React.Component{
             if(this.state.email === "" || this.state.password === ""){
                 this.setState({emailError: "*Please enter email"});
                 this.setState({passwordError: "Enter password"});
-                console.log(this.state.password.length);
             }else{
                 this.props.history.push('/dashboard');
-                console.log(this.state.password.length);
+                
             }
 
             
@@ -89,10 +86,10 @@ class Login extends React.Component{
                 <label className="lbl">ENTER DASHBOARD</label>
                
                 <input type="email" placeholder="Email Address" className="form-control" onChange={this.handleChangeEmail} ></input>
-                <small style={{color:"white"}}>{this.state.emailError}</small><br/>
+                <small style={{color:"orangered"}}>{this.state.emailError}</small><br/>
               
                 <input type="password" placeholder="Password" className="form-control" onChange={this.handleChangePassword}></input>
-                <small style={{color:"white"}}>{this.state.passwordError}</small><br/>
+                <small style={{color:"orangered"}}>{this.state.passwordError}</small><br/>
                 <input type="submit" value="Login" className="fname1"></input>
             </form>
             

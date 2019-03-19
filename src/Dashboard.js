@@ -21,7 +21,7 @@ class Dashboard extends React.Component{
                                 </div>
                                     <div className="signUp">
                                     
-                                    <Link to="/login"><input type="button" className="btn btn1" value="Welcome"></input></Link>
+                                    <Link to="/login"><input type="button" className="btn btn1" value="Log out"></input></Link>
                                     
                                     </div>
                     </nav>

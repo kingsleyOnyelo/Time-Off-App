@@ -19,9 +19,14 @@ class TeamView extends React.Component{
                                   </ul></Link>
                                   </div>
                                     <div className="signUp">
-                                         <Link to="/login"><input type="button" className="btn btn1" value="Welcome"></input></Link>
+                                         <Link to="/dashboard"><input type="button" className="btn btn1" value="Dashboard"></input></Link>
                                     </div>
                     </nav>
+
+
+                    <div className="signDiv2">
+                    
+                    </div>
             </div>
             
         )

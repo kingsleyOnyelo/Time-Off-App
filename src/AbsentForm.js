@@ -6,8 +6,74 @@ import {Link} from 'react-router-dom';
 
 class AbsentForm extends React.Component{
 
+    constructor(props){
+        super(props);
+
+        this.state = {
+            duration:"",
+            val: "date",
+            val2: "date",
+            txtArea:"",
+            txtAreaError:""
+        
+        }
+    }
+
+    handleChange = event => {
+        console.log(event.target.value);
+        this.setState({val: event.target.value});
+    }
+
+    handleChange2 = event => {
+        console.log(event.target.value);
+        this.setState({val2: event.target.value});
+    }
+
+    handleChangetxt = event =>{
+        this.setState({txtArea: event.target.value});
+    }
+
+    handleClick = (event)=>{
+        event.preventDefault();
+        let inp = this.state.val
+        let inp2 = this.state.val2
+        //console.log(inp.length);
+      let vl = null;
+      let vl2 = null;
+      let diff = null;
+        for(let i = 0; i <inp.length; i++){
+            let pair = `${inp[8]}${inp[9]}`;
+            let fn = parseInt(pair);
+            vl = fn;
+            console.log(vl);
+        }
+
+        for(let i = 0; i <inp2.length; i++){
+            let pair = `${inp2[8]}${inp2[9]}`;
+            let fn = parseInt(pair);
+            vl2 = fn;
+            console.log(vl2);
+        }
+         diff = vl2 - vl;
+         console.log(diff);
+        this.setState({duration: `${diff} days`});
+
+        if(this.state.txtArea === "")
+        this.setState({txtAreaError: "Please enter a value"})
+}
+        
+
+      
+        
+
+
+
+
+
 
     render(){
+
+      
 
         return (
             <div>
@@ -20,7 +86,7 @@ class AbsentForm extends React.Component{
                                 </div> */}
                                     <div className="signUp">
                                     
-                                    <Link to="/login"><input type="button" className="btn btn1" value="Welcome"></input></Link>
+                                    <Link to="/dashboard"><input type="button" className="btn btn1" value="Dashboard"></input></Link>
                                     
                                     </div>
                     </nav>
@@ -39,14 +105,16 @@ class AbsentForm extends React.Component{
                             
                             <label>From</label>
                             <label className="lbl4">To</label><br/>
-                            <input type="date" className="col-sm-6" value="2019-03-18" min="2018-01-01" max="2018-12-31"></input>
+                            <input type={this.state.val} className="col-sm-6" onChange={this.handleChange}></input>
                             
-                            <input type="date" className="col-sm-6" value="2020-07-22" min="2018-01-01" max="2018-12-31"></input><br/><br/>
-                            <input type="text" placeholder="duration"></input><br/><br/>
-                            <textarea rows="4" cols="50" className="col-sm">
+                            <input type={this.state.val2} className="col-sm-6" onChange={this.handleChange2}></input><br/><br/>
+                            <input type="text" placeholder="duration" value={this.state.duration}></input><br/><br/>
+                            <textarea rows="4" cols="50" className="col-sm" onChange={this.handleChangetxt}>
 
-                            </textarea><br/><br/>
-                            <input type="submit" value="Submit" className="fname1"></input>
+                            </textarea><br/>
+                            <small style={{color:"orangered"}}>{this.state.txtAreaError}</small><br/><br/>
+                            <input type="submit" value="Submit" className="fname1" onClick={this.handleClick}></input>
+
                         
                     </form>
                     </div>

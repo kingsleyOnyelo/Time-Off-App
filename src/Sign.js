@@ -8,18 +8,17 @@ import {Link} from 'react-router-dom';
 export default class Sign extends React.Component{
     constructor(props){
         super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleChangeName = this.handleChangeName.bind(this);
-        this.handleChangeEmail = this.handleChangeEmail.bind(this);
-        this.handleChangePass = this.handleChangePass.bind(this);
-        this.handleChangePass2 = this.handleChangePass2.bind(this);
+
+
         this.handleSubmit = this.handleSubmit.bind(this);
+
+
         this.state = {
-            department :"",
+            department:"",
             name:"",
-            email: "",
+            email:"",
             password:"",
-            password2:"",
+            passworded:"",
             departmentError : "",
             nameError: "",
             emailError: "",
@@ -30,71 +29,63 @@ export default class Sign extends React.Component{
     }
 
 
-    handleChange(event){
-        let deptVal= event.target.value;
-        this.setState({department: deptVal});
-        const deptState = this.state.department;
-        //console.log(deptState);
-        if(isNaN(parseInt(deptState))){
+    handleChangeDept = event=> {
+        const deptVal= event.target.value;
+        this.setState({department:deptVal});
+        console.log(deptVal);
+        if(isNaN(parseInt(deptVal))){
             this.setState({departmentError: "Valid Department"})
         }else{
             this.setState({departmentError: "Invalid department"})
+    } 
     }
-    };
 
-
-    handleChangeName(event){
-        let nameVal= event.target.value;
-        this.setState({name: nameVal});
-        const nameState = this.state.name;
-        //console.log(nameState);
-        if(isNaN(parseInt(nameState))){
+    handleChangeName = event=> {
+        const nameVal= event.target.value;
+        this.setState({name:nameVal});
+        console.log(nameVal);
+        if(isNaN(parseInt(nameVal))){
             this.setState({nameError: "Valid department"})
         }else{
             this.setState({nameError: "Invalid department"})
     }
-    };
+    }
 
-
-    handleChangeEmail(event){
-        let emailVal= event.target.value;
-        this.setState({email: emailVal});
-        const emailState = this.state.email;
-        //console.log(emailState);
-        if(emailState.includes("@")){
+    handleChangeEmail = event=> {
+        const emailVal = event.target.value;
+        this.setState({email:emailVal});
+        if(emailVal.includes("@")){
             this.setState({emailError: "Valid department"})
         }else{
             this.setState({emailError: "Invalid department"})
     }
+    }
+
+   
+
+    handleChangePass = (event) =>{
+        const passwordVal= event.target.value;
+        this.setState({password:passwordVal});
+        console.log(passwordVal);
     };
 
-    handleChangePass(event){
-        let passwordVal= event.target.value;
-        this.setState({password: passwordVal});
-        const passwordState = this.state.password;
-       if(passwordState.length < 0){
-            this.setState({passwordError: "Enter Password"})
+
+    handleChangeConPass = event => {
+        const passConVal = event.target.value;
+        this.setState({passworded:passConVal});
+        console.log(passConVal);
+
+        let me5 = this.state.password;
+
+        if(passConVal !== me5){
+            this.setState({passwordError: "Password not match"})
+          
         }else{
-            this.setState({passwordError: ""})
-    } 
+            this.setState({passwordError: "Password match"});
+    }  
+
     }
-
-
-    handleChangePass2(event){
-        let password2Val= event.target.value;
-        this.setState({password2: password2Val});
-        const password2State = this.state.password2;
-       if(password2State.length < 0){
-            this.setState({passwordError: "Enter Password"})
-        }else{
-            this.setState({passwordError: ""})
-    } 
-    }
-  
-
-
-
-    
+          
 handleSubmit(event){
 event.preventDefault();
 
@@ -102,17 +93,19 @@ event.preventDefault();
 let me = this.state.department;
 let me2 = this.state.name;
 let me3 = this.state.email;
-let me4 = this.state.password;
-let me5 = this.state.password2;
-if( me === "" && me2 === "" && me3 === "" && me4.length !== me5.length || me4 === ""){
+let me4 = this.state.passworded;
+let me5 = this.state.password;
+console.log(me5);
+if( me === "" && me2 === "" && me3 === "" && (me5 === "" && me4 === "" || me4 !== me5)){
     this.setState({departmentError: "*Please enter department"});
     this.setState({nameError: "*Please enter name"});
     this.setState({emailError: "*Please enter email"});
     this.setState({dobError: "*Please enter DOB"});
-    this.setState({passwordError: "*Please enter password"});
+    this.setState({passwordError: "*Enter password"});
+
    
 }else{
-    this.props.history.push('/login');
+    this.props.history.push('/dashboard');
 }
          
 };
@@ -135,18 +128,19 @@ if( me === "" && me2 === "" && me3 === "" && me4.length !== me5.length || me4 ==
             
                <form onSubmit={this.handleSubmit}>
                 <label className="lbl">SIGN UP</label>
-                <input type="text" placeholder="Department" className="form-control" onChange={this.handleChange} ></input>
-                <small style={{color:"white"}}>{this.state.departmentError}</small><br/>
+                <input type="text" placeholder="Department" className="form-control" onChange={this.handleChangeDept} value={this.state.department}></input>
+                <small style={{color:"orangered"}}>{this.state.departmentError}</small><br/>
                 <input type="text" placeholder="Name" className="form-control" onChange={this.handleChangeName} ></input>
-                <small style={{color:"white"}}>{this.state.nameError}</small><br/>
+                <small style={{color:"orangered"}}>{this.state.nameError}</small><br/>
                 <input type="email" placeholder="Email Address" className="form-control" onChange={this.handleChangeEmail} ></input>
-                <small style={{color:"white"}}>{this.state.emailError}</small><br/>
-                <input placeholder="dd/mm/yy" className="form-control" onChange={this.handleChangeDOB} ></input>
-                <small style={{color:"white"}}>{this.state.dobError}</small><br/>
+                <small style={{color:"orangered"}}>{this.state.emailError}</small><br/>
+                <input type="date" placeholder="dd/mm/yy" className="form-control" onChange={this.handleChangeDOB} ></input>
+                <small style={{color:"orangered"}}>{this.state.dobError}</small><br/>
                 <input type="password" placeholder="Password" className="form-control" onChange={this.handleChangePass} ></input>
-                <small style={{color:"white"}}>{this.state.passwordError}</small><br/>
-                <input type="password" placeholder="Confirm Password" className="form-control" onChange={this.handleChangePass2} ></input>
-                <small style={{color:"white"}}></small>
+                <br/>
+                <input type="password" placeholder="Confirm Password" className="form-control" onChange={this.handleChangeConPass} ></input>
+                <small style={{color:"orangered"}}>{this.state.passwordError}</small>
+          
                 <br/>
                 <select name="Country" className="fname form-control">
                     <option value="Canada" >Canada</option>
