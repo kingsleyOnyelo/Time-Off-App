@@ -116,7 +116,7 @@ class AbsentForm extends React.Component{
                             <input type="submit" value="Submit" className="fname1" onClick={this.handleClick}></input>
 
                         
-                    </form>
+                    </form> 
                     </div>
                     </div>
                     </div>
