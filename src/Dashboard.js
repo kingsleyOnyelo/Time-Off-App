@@ -2,9 +2,54 @@ import React from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+import env from './env';
 
 
 class Dashboard extends React.Component{
+
+        constructor(props){
+        super(props);
+
+        this.state = {
+            name:'',
+            department:'',
+            age:''
+
+        }
+    }
+
+   async componentDidMount(){
+
+        try {
+            const getToken = localStorage.getItem("blog-token");
+
+            //if(!getToken) return this.props.history.push('/sign');
+            const res = await axios.get(`${env.api}/teachers/teachers/profile`, 
+             {
+                 headers: {
+                     Authorization : `Bearer ${getToken}`
+                 },
+               
+            });
+            console.log(res.data.data.name);
+
+            this.setState({name:res.data.data.name, department: res.data.data.department});
+
+            
+           
+        } catch (error) {
+            //console.log(error.response);
+            this.props.history.push('/sign');
+        }
+        
+    }
+
+
+
+
+
+
     render(){
         return (
             <div>
@@ -29,7 +74,7 @@ class Dashboard extends React.Component{
                     <div className="signDiv2">
                         <div className="container-fluid">
                         <br/>
-                        <h3>Employee Calendar</h3><small>John Doe Calendar's </small><br/><h4>Statistics</h4>
+                        <h3>Employee Calendar</h3><small>'s Calendar's </small><br/><h4>Statistics</h4>
                             <div className="row offRem">
                             
                                     <div className="col-sm">
@@ -68,8 +113,8 @@ class Dashboard extends React.Component{
                                     <div className="days1">
                                         <h5>Details</h5>
                                         <hr></hr>
-                                        <small>Supervisor:<span style={{float:"right"}}>John Doe</span></small><br/>
-                                        <small>Department:<span style={{float: "right"}}>Sales</span></small><br/>
+                                        <small>Supervisor:<span style={{float:"right"}}>{this.state.name}</span></small><br/>
+                                        <small>Department:<span style={{float: "right"}}>{this.state.department}</span></small><br/>
                                         <small>Allowance in 2018:<span style={{float: "right"}}>21 days</span></small><br/>
                                         
                                     </div>
