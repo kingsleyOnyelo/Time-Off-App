@@ -25,14 +25,14 @@ class Dashboard extends React.Component{
             const getToken = localStorage.getItem("blog-token");
 
             //if(!getToken) return this.props.history.push('/sign');
-            const res = await axios.get(`${env.api}/teachers/teachers/profile`, 
+            const res = await axios.get(`${env.api}/teachers/profile`, 
              {
                  headers: {
                      Authorization : `Bearer ${getToken}`
                  },
                
             });
-            console.log(res.data.data.name);
+            
 
             this.setState({name:res.data.data.name, department: res.data.data.department});
 
