@@ -13,6 +13,7 @@ export default class Sign extends React.Component{
 
         this.onChange = this.onChange.bind(this);
         this.submitForm = this.submitForm.bind(this);
+        this.isFormValid = this.isFormValid.bind(this);
 
         this.state = {
             department:"",
@@ -24,18 +25,24 @@ export default class Sign extends React.Component{
         };
     }
 
-
-  
-
-
-    onChange(e){
+ onChange(e){
         this.setState({[e.target.name]: e.target.value});
     }
   
 
+    isFormValid(){
+        const required = ['name', 'department', 'email', 'password'];
+        let emptyField = 0;
+
+        required.forEach(field =>{
+            if(this.state[field] === '') ++emptyField;
+         });
+
+         return emptyField > 0 ? true: false;
+    }
+
 async submitForm(){
-    
-   
+
         try {
             const res = await axios.post(`${env.api}/teachers`, this.state);
             //console.log(res.data);
@@ -88,7 +95,7 @@ async submitForm(){
                     <option value="Dubai">Dubai</option>
                     <option value="Ghana">Ghana</option>
                 </select><br/>
-                <input type="submit" value="Submit" className="fname1" onClick={this.submitForm}/>>
+                <input type="submit" value="Submit" className="fname1" onClick={this.submitForm} disabled = {this.isFormValid()}/>
             </div>
             
                 

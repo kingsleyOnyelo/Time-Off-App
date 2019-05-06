@@ -2,6 +2,8 @@ import React from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+import env from './env';
 
 
 
@@ -28,9 +30,33 @@ class Login extends React.Component{
 
 
 
+    async componentDidMount(){
+
+        try {
+            const getToken = localStorage.getItem("blog-token");
+
+            if(!getToken) return this.props.history.push('/sign');
+            const res = await axios.get(`${env.api}/teachers/profile`, 
+             {
+                 headers: {
+                     Authorization : `Bearer ${getToken}`
+                 },
+               
+            });
+            
+            if(this.state.email === res.data.data.email && this.state.password === res.data.data.password)
+            this.props.history.push("/dashboard");
+    
+        } catch (error) {
+            //console.log(error.response);
+            this.props.history.push('/sign');
+        }  
+    }
 
 
-    handleChangeEmail(event){
+
+
+     handleChangeEmail(event){
         let emailVal= event.target.value;
         this.setState({email: emailVal});
         const emailState = this.state.email;
@@ -90,7 +116,7 @@ class Login extends React.Component{
               
                 <input type="password" placeholder="Password" className="form-control" onChange={this.handleChangePassword}></input>
                 <small style={{color:"orangered"}}>{this.state.passwordError}</small><br/>
-                <input type="submit" value="Login" className="fname1"></input>
+                <input type="submit" value="Login" className="fname1"/>
             </form>
             
                 

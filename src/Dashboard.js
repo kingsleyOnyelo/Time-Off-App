@@ -24,7 +24,7 @@ class Dashboard extends React.Component{
         try {
             const getToken = localStorage.getItem("blog-token");
 
-            //if(!getToken) return this.props.history.push('/sign');
+            if(!getToken) return this.props.history.push('/sign');
             const res = await axios.get(`${env.api}/teachers/profile`, 
              {
                  headers: {
@@ -74,7 +74,7 @@ class Dashboard extends React.Component{
                     <div className="signDiv2">
                         <div className="container-fluid">
                         <br/>
-                        <h3>Employee Calendar</h3><small>'s Calendar's </small><br/><h4>Statistics</h4>
+                        <h3>Employee Calendar</h3><strong>{this.state.name}'s Calendar</strong><br/><h4>Statistics</h4>
                             <div className="row offRem">
                             
                                     <div className="col-sm">
@@ -113,8 +113,8 @@ class Dashboard extends React.Component{
                                     <div className="days1">
                                         <h5>Details</h5>
                                         <hr></hr>
-                                        <small>Supervisor:<span style={{float:"right"}}>{this.state.name}</span></small><br/>
-                                        <small>Department:<span style={{float: "right"}}>{this.state.department}</span></small><br/>
+                                        <strong>Supervisor:<span style={{float:"right"}}>{this.state.name}</span></strong><br/>
+                                        <strong>Department:<span style={{float: "right"}}>{this.state.department}</span></strong><br/>
                                         <small>Allowance in 2018:<span style={{float: "right"}}>21 days</span></small><br/>
                                         
                                     </div>
