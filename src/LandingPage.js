@@ -60,11 +60,14 @@ class LandingPage extends React.Component{
                                         <div className="signBtnDiv">
                                         <Link to="/sign"><input type="button" value="SignUp Now" className="signBtn"></input></Link>
                                         </div>   
-                                                
-                                                
-                                       
                                 </section>
+                                <section>
+                                <p style={{color:"orangered", marginTop:"80px", marginLeft:"580px"}}>powered by Kingsley Onyelo</p>
+                                </section>
+                                
                                     </div>
+
+                                    
                                     
                                 }}></Route>
                                 

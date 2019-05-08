@@ -14,7 +14,8 @@ class AbsentForm extends React.Component{
             val: "date",
             val2: "date",
             txtArea:"",
-            txtAreaError:""
+            txtAreaError:"",
+            leaveType:""
         
         }
     }
@@ -35,8 +36,11 @@ class AbsentForm extends React.Component{
 
     handleClick = (event)=>{
         event.preventDefault();
-        let inp = this.state.val
-        let inp2 = this.state.val2
+        let inp = this.state.val;
+        let inp2 = this.state.val2;
+        localStorage.setItem("endDate", inp2);
+        localStorage.setItem("startDate", inp);
+        localStorage.setItem("leave", this.state.leaveType);
         //console.log(inp.length);
       let vl = null;
       let vl2 = null;
@@ -53,16 +57,32 @@ class AbsentForm extends React.Component{
             let fn = parseInt(pair);
             vl2 = fn;
             console.log(vl2);
+            
         }
          diff = vl2 - vl;
          console.log(diff);
-        this.setState({duration: `${diff} days`});
+         localStorage.setItem("dateValue", diff);
+         if(diff === -1 || NaN){
+            diff = "wrong";
+            localStorage.removeItem("dateValue");
+         }
+         
+        
+         let dayType;
+         diff === 1 ? dayType = "day": dayType = "days";
+
+        this.setState({duration: `${diff} ${dayType}`});
 
         if(this.state.txtArea === "")
         this.setState({txtAreaError: "Please enter a value"})
 }
         
 
+
+handleLeave = (e)=>{
+    this.setState({leaveType: e.target.value});
+    
+}
       
         
 
@@ -95,7 +115,7 @@ class AbsentForm extends React.Component{
                     <div className="container-fluid"><br/><br/>
                     <div className="formDiv">
                     <form>
-                            <select name="Country" className="form-control col-sm">
+                            <select name="Country" className="form-control col-sm" onChange = {this.handleLeave}>
                                 <option value="Type of Leave">Type of Leave</option>
                                 <option value="Holiday">Holiday</option>
                                 <option value="Maternity">Maternity</option>

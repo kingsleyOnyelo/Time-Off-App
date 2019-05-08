@@ -27,7 +27,42 @@ export default class Sign extends React.Component{
 
  onChange(e){
         this.setState({[e.target.name]: e.target.value});
-    }
+
+
+     /*    let emailVal= e.target.value;
+        this.setState({email: emailVal});
+        const emailState = this.state.email;
+        //console.log(emailState);
+        if(emailState.includes("@")){
+            this.setState({emailError: "Valid Email"})
+        }else{
+            this.setState({emailError: "Invalid Email"})
+    } */
+
+
+
+    let deptVal= e.target.value;
+    this.setState({department: deptVal});
+    const deptState = this.state.department;
+   
+    if(isNaN(deptState)){
+        this.setState({deptError: "Good one!"})
+    }else{
+        this.setState({deptError: "Enter valid department!"})
+}
+
+
+/* 
+let nameVal= e.target.value;
+this.setState({name: nameVal});
+const nameState = this.state.name;
+
+if(isNaN(nameState)){
+    this.setState({nameError: "Nice name!"})
+}else{
+    this.setState({nameError: "Enter valid name!"})
+} */
+    };
   
 
     isFormValid(){
@@ -76,11 +111,14 @@ async submitForm(){
             
                <div>
                 <label className="lbl">SIGN UP</label>
-                <input type="text" name="department" placeholder="Department" className="form-control" onChange={this.onChange}/><br/>
+                <input type="text" name="department" placeholder="Department" className="form-control" onChange={this.onChange}/>
+                <small style={{color:"orangered"}}>{this.state.deptError}</small><br/>
                
-                <input type="text" name="name" placeholder="Name" className="form-control" onChange= {this.onChange}/><br/>
+                <input type="text" name="name" placeholder="Name" className="form-control" onChange= {this.onChange}/>
+                <small style={{color:"orangered"}}>{this.state.nameError}</small><br/>
                 
-                <input type="text" name="email" placeholder="Email Address" className="form-control" onChange= {this.onChange}/><br/>
+                <input type="text" name="email" placeholder="Email Address" className="form-control" onChange= {this.onChange}/>
+                <small style={{color:"orangered"}}>{this.state.emailError}</small><br/>
            
                 <input type="number"name="age" placeholder="Age" className="form-control" onChange= {this.onChange}/><br/>
               

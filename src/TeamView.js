@@ -2,9 +2,64 @@ import React from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+import env from './env';
 
 
 class TeamView extends React.Component{
+  constructor(props){
+    super(props);
+  this.state = {
+    showData: {name:'',
+    department:'',
+    age:'',
+    leaveType:"",
+    endDate:"",
+    startDate:""
+    
+   }
+
+}
+}
+
+async componentDidMount(){
+
+try {
+    
+    const getToken = localStorage.getItem("blog-token");
+    const getLeave = localStorage.getItem("leave");
+    const getEndDate = localStorage.getItem("endDate");
+    const getStartDate = localStorage.getItem("startDate")
+
+    if(!getToken) return this.props.history.push('/sign');
+    const res = await axios.get(`${env.api}/teachers/profile`, 
+     {
+         headers: {
+             Authorization : `Bearer ${getToken}`
+         },
+       
+    });
+    this.setState({name:res.data.data.name, department: res.data.data.department});
+    
+    this.setState({endDate: getEndDate});
+    this.setState({leaveType: getLeave});
+    this.setState({startDate: getStartDate});
+    
+
+    
+    } catch (error) {
+    //console.log(error.response);
+    this.props.history.push('/sign');
+}
+}
+
+
+
+
+
+
+
+
 
 
     render(){
@@ -48,46 +103,18 @@ class TeamView extends React.Component{
     </thead>
     <tbody>
       <tr>
-        <td>Lysa</td>
-        <td>Warehouse</td>
-        <td>2018/06/12</td>
-        <td>From 2018/06/12 To 2018/07/30</td>
-        <td>Paternity Leave</td>
+        <td>{this.state.name}</td>
+        <td>{this.state.department}</td>
+        <td>{this.state.endDate}</td>
+        <td>From {this.state.startDate} To {this.state.endDate}</td>
+        <td>{this.state.leaveType}</td>
         <td>0</td>
         <td><input type="button" className="btn-danger" value="reject"/></td>
         <td><input type="button" className="btn-primary" value="approved"/></td>
       </tr>
-      <tr>
-        <td>Lysa</td>
-        <td>Warehouse</td>
-        <td>2018/06/12</td>
-        <td>From 2018/06/12 To 2018/07/30</td>
-        <td>Paternity Leave</td>
-        <td>0</td>
-        <td><input type="button" className="btn-danger" value="reject"/></td>
-        <td><input type="button" className="btn-primary" value="approved"/></td>
-      </tr>
-      <tr>
-        <td>Lysa</td>
-        <td>Warehouse</td>
-        <td>2018/06/12</td>
-        <td>From 2018/06/12 To 2018/07/30</td>
-        <td>Paternity Leave</td>
-        <td>2</td>
-        <td><input type="button" className="btn-danger" value="reject"/></td>
-        <td><input type="button" className="btn-primary" value="approved"/></td>
-      </tr>
+     
+      
 
-      <tr>
-        <td>Lysa</td>
-        <td>Warehouse</td>
-        <td>2018/06/12</td>
-        <td>From 2018/06/12 To 2018/07/30</td>
-        <td>Paternity Leave</td>
-        <td>1</td>
-        <td><input type="button" className="btn-danger" value="reject"/></td>
-        <td><input type="button" className="btn-primary" value="approved"/></td>
-      </tr>
       
       
     </tbody>

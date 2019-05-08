@@ -21,39 +21,12 @@ class Login extends React.Component{
         this.state = {
             email: "",
             password:"",
-            emailError: "",
-            passwordError: "",
-           
-
-        };
+          };
     };
 
-
-
-    async componentDidMount(){
-
-        try {
-            const getToken = localStorage.getItem("blog-token");
-
-            if(!getToken) return this.props.history.push('/sign');
-            const res = await axios.get(`${env.api}/teachers/profile`, 
-             {
-                 headers: {
-                     Authorization : `Bearer ${getToken}`
-                 },
-               
-            });
-            
-            if(this.state.email === res.data.data.email && this.state.password === res.data.data.password)
-            this.props.history.push("/dashboard");
     
-        } catch (error) {
-            //console.log(error.response);
-            this.props.history.push('/sign');
-        }  
-    }
 
-
+    
 
 
      handleChangeEmail(event){
@@ -79,18 +52,26 @@ class Login extends React.Component{
     }
     }
 
-    handleSubmit(event){
+   async handleSubmit(event){
         event.preventDefault();
-            if(this.state.email === "" || this.state.password === ""){
-                this.setState({emailError: "*Please enter email"});
-                this.setState({passwordError: "Enter password"});
-            }else{
-                this.props.history.push('/dashboard');
-                
-            }
+          try {
+                    const res = await axios.post(`${env.api}/teachers/login`, this.state);
+                    const token = res.data.data.token;
 
+                    localStorage.setItem("blog-token", token);
+                    this.props.history.push("/dashboard");
+                     } catch (error) {
+                        console.log(error.response);
+                    this.props.history.push('/sign');
+                }  
             
-    }
+}
+
+
+
+
+
+
 
     render(){
         return(
@@ -111,10 +92,10 @@ class Login extends React.Component{
                
                 <label className="lbl">ENTER DASHBOARD</label>
                
-                <input type="email" placeholder="Email Address" className="form-control" onChange={this.handleChangeEmail} ></input>
+                <input type="email" placeholder="Email Address" className="form-control" onChange={this.handleChangeEmail} />
                 <small style={{color:"orangered"}}>{this.state.emailError}</small><br/>
               
-                <input type="password" placeholder="Password" className="form-control" onChange={this.handleChangePassword}></input>
+                <input type="password" placeholder="Password" className="form-control" onChange={this.handleChangePassword} />
                 <small style={{color:"orangered"}}>{this.state.passwordError}</small><br/>
                 <input type="submit" value="Login" className="fname1"/>
             </form>
