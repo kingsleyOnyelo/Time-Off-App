@@ -40,8 +40,12 @@ class Dashboard extends React.Component{
                
             });
             this.setState({name:res.data.data.name, department: res.data.data.department});
+            if(!getEndDate){
+              this.setState({endDate: "No record"});
+            }else{
+              this.setState({endDate: getEndDate});
+            }
             
-            this.setState({endDate: getEndDate});
 
             if(!getLeave){
               this.setState({leaveType: "No record"});
