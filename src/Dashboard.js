@@ -20,7 +20,8 @@ class Dashboard extends React.Component{
             leaveType:"",
             endDate:"",
             dateDiff:"",
-            date: new Date(),
+            date: new Date(2017, 0, 1),
+            day:""
 }
         }
 
@@ -58,6 +59,22 @@ class Dashboard extends React.Component{
               this.setState({leaveType: getLeave});
             }
             
+            const dayArray = [0,1,2,3,4,5,6,7,8,9,10,11];
+
+            for(let i = 0; i< dayArray.length; i++){
+              //console.log(dayArray[i]);
+              if(new Date().getHours() === dayArray[i] ){
+                
+                this.setState({day: "Good afternoon! "});
+                break;
+              }else{
+                
+                this.setState({day: "Good morning! "});
+              }
+            }
+
+           
+            
             
         
             
@@ -69,7 +86,7 @@ class Dashboard extends React.Component{
     }
 
 Onchange = date =>{
-  this.setState({date});
+  this.setState({date: date});
   console.log(this.state.date);
 };
 
@@ -99,7 +116,7 @@ Onchange = date =>{
                     <div className="signDiv2">
                         <div className="container-fluid">
                         <br/>
-                        <h4>{this.state.name}'s Calendar</h4><br/><p>Statistics</p>
+                        <h4>{this.state.day}{this.state.name}</h4><br/><p>Statistics</p>
                             <div className="row offRem">
                             
                                     <div className="col-sm">
@@ -152,7 +169,7 @@ Onchange = date =>{
                      <a href="#toggleUs" data-toggle="collapse" className="btn btn-success btn-xs">Monitor your leave</a>
                    
                       <Calendar
-                        onChange={this.onChange}
+                        activeStartDate={this.onChange}
                         value={this.state.date}
                         //onClicYear = {this.onClickYear}
                       />

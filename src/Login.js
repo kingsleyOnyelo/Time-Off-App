@@ -59,6 +59,7 @@ class Login extends React.Component{
                     const token = res.data.data.token;
 
                     localStorage.setItem("blog-token", token);
+                    
                     this.props.history.push("/dashboard");
                      } catch (error) {
                         console.log(error.response);
