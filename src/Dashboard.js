@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import env from './env';
+import Calendar from 'react-calendar';
+//import moment from 'moment';
 
 
 class Dashboard extends React.Component{
@@ -12,16 +14,15 @@ class Dashboard extends React.Component{
         super(props);
 
         this.state = {
-            showData: {name:'',
+            name:'',
             department:'',
             age:'',
             leaveType:"",
             endDate:"",
-            
-           }
-
+            dateDiff:"",
+            date: new Date(),
+}
         }
-    }
 
    async componentDidMount(){
 
@@ -30,6 +31,7 @@ class Dashboard extends React.Component{
             const getToken = localStorage.getItem("blog-token");
             const getLeave = localStorage.getItem("leave");
             const getEndDate = localStorage.getItem("endDate");
+            const getdDateDiff = localStorage.getItem("dateValue");
 
             if(!getToken) return this.props.history.push('/sign');
             const res = await axios.get(`${env.api}/teachers/profile`, 
@@ -39,7 +41,10 @@ class Dashboard extends React.Component{
                  },
                
             });
+
+            
             this.setState({name:res.data.data.name, department: res.data.data.department});
+            this.setState({dateDiff:getdDateDiff});
             if(!getEndDate){
               this.setState({endDate: "No record"});
             }else{
@@ -63,6 +68,10 @@ class Dashboard extends React.Component{
         
     }
 
+Onchange = date =>{
+  this.setState({date});
+  console.log(this.state.date);
+};
 
 
 
@@ -97,7 +106,7 @@ class Dashboard extends React.Component{
                                     <div className="days1">
                                         <h1 className="daysLeft">8</h1>
                                         <hr></hr>
-                                        <small>21 days remaining out 1 days allowance for leave.</small>
+                                        <small><span style={{color:"green"}}>{this.state.dateDiff}</span> days remaining for leave.</small>
                                     </div>
                                     </div>
 
@@ -107,8 +116,7 @@ class Dashboard extends React.Component{
                                     <div className="days1">
                                         <h5>Used so far</h5>
                                         <hr></hr>
-                                        <small>Holiday:<span style={{float: "right"}}><small>12.5</small></span></small><br/>
-                                        <small>Sick Leave:<span style={{float: "right"}}><small>1 out of 12</small></span></small>
+                                        <small>{this.state.leaveType}:<span style={{float: "right"}}><small>1 out of <span style={{color:"green"}}>{this.state.dateDiff}</span></small></span></small>
                                     </div>
                                     </div>
 
@@ -129,9 +137,9 @@ class Dashboard extends React.Component{
                                     <div className="days1">
                                         <h5>Details</h5>
                                         <hr></hr>
-                                        <strong>Supervisor:<span style={{float:"right"}}>{this.state.name}</span></strong><br/>
-                                        <strong>Department:<span style={{float: "right"}}>{this.state.department}</span></strong><br/>
-                                        <small>Allowance in 2018:<span style={{float: "right"}}>21 days</span></small><br/>
+                                        <strong>Supervisor:<span style={{float:"right",color:"green"}}>{this.state.name}</span></strong><br/>
+                                        <strong>Department:<span style={{float: "right", color:"green"}}>{this.state.department}</span></strong><br/>
+                                        <small>Allowance in 2018:<span style={{float: "right"}}><span style={{color:"green"}}>{this.state.dateDiff}</span> days</span></small><br/>
                                         
                                     </div>
                                     </div>
@@ -140,8 +148,15 @@ class Dashboard extends React.Component{
 
                             <br/><br/>
 
-                    <a href="#toggleUs" data-toggle="collapse" className="btn btn-success btn-xs">Show more</a>
-                          
+                     <div>
+                     <a href="#toggleUs" data-toggle="collapse" className="btn btn-success btn-xs">Monitor your leave</a>
+                   
+                      <Calendar
+                        onChange={this.onChange}
+                        value={this.state.date}
+                        //onClicYear = {this.onClickYear}
+                      />
+                    </div>     
                         
 
                             <br/><br/>
@@ -149,32 +164,28 @@ class Dashboard extends React.Component{
 
 
 <h4>All Absences</h4>
-<div className="row offRem">
-                            
-                                    <div className="col">
+  <div className="row offRem">
+  <div className="col">
             
               
-  <table className="table">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>End Date</th>
-        <th>Approved by</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style = {{color: "orange"}}>{this.state.leaveType}</td>
-        <td style = {{color: "orange"}}>{this.state.endDate}</td>
-        <td>Kingsley Onyelo</td>
-        <td>Approved</td>
-      </tr>
-     
-    
-      
-    </tbody>
-  </table>
+                                  <table className="table">
+                                    <thead>
+                                      <tr>
+                                        <th>Type</th>
+                                        <th>End Date</th>
+                                        <th>Approved by</th>
+                                        <th>Status</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td style = {{color: "orange"}}>{this.state.leaveType}</td>
+                                        <td style = {{color: "orange"}}>{this.state.endDate}</td>
+                                        <td>Kingsley Onyelo</td>
+                                        <td>Approved</td>
+                                      </tr>
+                                  </tbody>
+                                  </table>
                                     </div>
                             </div>
                         </div>

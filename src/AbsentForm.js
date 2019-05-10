@@ -133,7 +133,7 @@ handleLeave = (e)=>{
 
                             </textarea><br/>
                             <small style={{color:"orangered"}}>{this.state.txtAreaError}</small><br/><br/>
-                            <input type="submit" value="Submit" className="fname1" onClick={this.handleClick}></input>
+                            <input type="button" value="Submit" className="fname1" onClick={this.handleClick}></input>
 
                         
                     </form> 

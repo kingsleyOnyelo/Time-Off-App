@@ -40,7 +40,7 @@ export default class Sign extends React.Component{
     } */
 
 
-
+/* 
     let deptVal= e.target.value;
     this.setState({department: deptVal});
     const deptState = this.state.department;
@@ -49,7 +49,7 @@ export default class Sign extends React.Component{
         this.setState({deptError: "Good one!"})
     }else{
         this.setState({deptError: "Enter valid department!"})
-}
+} */
 
 
 /* 
